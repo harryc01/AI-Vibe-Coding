@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>中国宏观周期与资产配置（真实数据版）</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <h1>中国宏观周期与大类资产配置（真实数据版）</h1>
+        <p>数据来源：Wind / 同花顺 iFinD（通过本地脚本拉取后生成 real_macro_data.json）。</p>
+        <div class="toolbar">
+          <label for="monthRange">查看月份：</label>
+          <input id="monthRange" type="range" min="0" max="0" value="0" />
+          <strong id="monthLabel"></strong>
+        </div>
+      </header>
+
+      <section class="card-grid">
+        <div class="card">
+          <div class="label">当前周期阶段</div>
+          <div class="value" id="regimeValue">-</div>
+          <div id="regimeBadge"></div>
+        </div>
+        <div class="card">
+          <div class="label">增长分数（Z）</div>
+          <div class="value" id="growthValue">-</div>
+        </div>
+        <div class="card">
+          <div class="label">通胀分数（Z）</div>
+          <div class="value" id="inflationValue">-</div>
+        </div>
+        <div class="card">
+          <div class="label">信号置信度</div>
+          <div class="value" id="confidenceValue">-</div>
+        </div>
+      </section>
+
+      <section class="section panel-grid">
+        <div class="card">
+          <div class="label">周期象限图（增长 × 通胀）</div>
+          <div id="quadrantChart" class="chart"></div>
+        </div>
+        <div class="card">
+          <div class="label">关键指标趋势（PMI / CPI / 社融）</div>
+          <div id="indicatorChart" class="chart"></div>
+        </div>
+      </section>
+
+      <section class="section panel-grid">
+        <div class="card">
+          <div class="label">当前配置建议（权重热力）</div>
+          <div id="allocationHeatmap" class="chart"></div>
+        </div>
+        <div class="card">
+          <div class="label">解释摘要</div>
+          <div class="summary-box" id="summaryText"></div>
+          <div class="summary-box" id="compareText"></div>
+        </div>
+      </section>
+
+      <section class="section card">
+        <div class="label">打不开时的兜底方式：本地上传 JSON</div>
+        <div class="toolbar" style="margin-top: 10px">
+          <input id="jsonFileInput" type="file" accept="application/json" />
+          <button id="loadJsonBtn" type="button">加载本地 real_macro_data.json</button>
+        </div>
+        <div class="summary-box">如果你是直接双击 HTML 打开，浏览器会拦截 fetch。本区域可直接读取本地 JSON 文件并渲染图表。</div>
+      </section>
+
+      <p class="footer-note">若提示“未找到真实数据文件”，可先执行 README 抓取命令，或直接用上面的上传方式。</p>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

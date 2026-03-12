@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>宏观资配 Briefing Demo</title>
+    <link rel="stylesheet" href="./briefing.css" />
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="toc card">
+        <h3>目录</h3>
+        <a href="#sec-summary">本期结论</a>
+        <a href="#sec-cycle">周期研判</a>
+        <a href="#sec-indicator">指标证据</a>
+        <a href="#sec-allocation">资产配置</a>
+        <a href="#sec-risk">风险提示</a>
+      </aside>
+
+      <main class="content">
+        <section class="card hero" id="sec-summary">
+          <div>
+            <h1 id="title">-</h1>
+            <p class="meta" id="meta">-</p>
+            <p id="summary">-</p>
+          </div>
+          <div class="stats">
+            <div><span>阶段</span><strong id="regime">-</strong></div>
+            <div><span>置信度</span><strong id="confidence">-</strong></div>
+          </div>
+        </section>
+
+        <section class="grid2" id="sec-cycle">
+          <div class="card">
+            <h2>周期象限（增长 × 通胀）</h2>
+            <div id="quadrant" class="chart"></div>
+          </div>
+          <div class="card">
+            <h2>阶段切换时间轴</h2>
+            <div id="timeline" class="chart"></div>
+          </div>
+        </section>
+
+        <section class="grid2" id="sec-indicator">
+          <div class="card">
+            <h2>关键指标趋势（PMI/CPI/社融）</h2>
+            <div id="indicator" class="chart"></div>
+          </div>
+          <div class="card">
+            <h2>本期资产权重雷达</h2>
+            <div id="radar" class="chart"></div>
+          </div>
+        </section>
+
+        <section class="card" id="sec-allocation">
+          <h2>资产配置建议</h2>
+          <table id="allocTable">
+            <thead><tr><th>资产</th><th>观点</th><th>理由</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </section>
+
+        <section class="card" id="sec-risk">
+          <h2>风险提示</h2>
+          <ul id="riskList"></ul>
+        </section>
+      </main>
+    </div>
+    <script src="./briefing.js"></script>
+  </body>
+</html>
